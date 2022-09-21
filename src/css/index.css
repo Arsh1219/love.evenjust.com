@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css?family=Literata:400,500,600,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Literata", serif;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.rounded-xlg {
+  border-radius: 1rem;
+}
+
+/* Add this attribute to the element that needs a tooltip */
+[data-tooltip] {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  transition: all 2s;
+}
+
+/* Hide the tooltip content by default */
+[data-tooltip]:before,
+[data-tooltip]:after {
+  visibility: hidden;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Position tooltip above the element */
+[data-tooltip]:before {
+  position: absolute;
+  bottom: -100%;
+  left: 50%;
+  margin-bottom: 5px;
+  margin-left: -80px;
+  padding: 7px;
+  width: 160px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #000;
+  background-color: hsla(0, 0%, 20%, 0.9);
+  color: #fff;
+  content: attr(data-tooltip);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.speech-bubble {
+  position: relative;
+}
+
+.speech-bubble:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  left: -19px;
+  top: 6px;
+}
+
+.speech-bubble.blue:before {
+  border-right: 10px solid #2b6cb0;
+  border-top: 10px solid #2b6cb0;
+}
+
+.speech-bubble.blue {
+  background: #2b6cb0;
+}
+
+.speech-bubble.teal {
+  background: #5139bd;
+}
+
+.speech-bubble.teal:before {
+  border-right: 10px solid #5139bd;
+  border-top: 10px solid #5139bd;
+}
+
+.speech-bubble.orange {
+  background: #e09f4b;
+}
+
+.speech-bubble.orange:before {
+  border-right: 10px solid #e09f4b;
+  border-top: 10px solid #e09f4b;
+}
+
+.speech-bubble.green {
+  background: #2f855a;
+}
+.speech-bubble.green:before {
+  border-right: 10px solid #2f855a;
+  border-top: 10px solid #2f855a;
+}
+
+/* Triangle hack to make tooltip look like a speech bubble */
+[data-tooltip]:after {
+  position: absolute;
+  bottom: -14%;
+  left: 50%;
+  margin-left: -5px;
+  width: 0;
+  border-bottom: 5px solid #000;
+  border-bottom: 5px solid hsla(0, 0%, 20%, 0.9);
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  content: " ";
+  font-size: 0;
+  line-height: 0;
+}
+
+/* Show tooltip content on hover */
+[data-tooltip].hover:before,
+[data-tooltip].hover:after {
+  visibility: visible;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+
+#root.blur {
+  filter: blur(8px);
+  overflow: hidden;
+}
+
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: absolute;
+  width: 30px;
+  height: 18px;
+  left: 18px;
+  top: 17px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #ffffff;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: #f4dede;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #bf3636;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #9d9006;
+  padding: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+}
+
+.menu-item {
+  color: white;
+  margin: 25px 0px;
+  font-size: 20px;
+  font-weight: normal;
+  outline: none;
+  text-decoration: dotted;
+  padding-bottom: 1px;
+  border-bottom: 1px dotted #f17b7b;
+}
+.menu-item:hover {
+  text-decoration: none;
+  color: rgb(217, 198, 198);
+}
